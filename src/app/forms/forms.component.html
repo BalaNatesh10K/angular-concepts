@@ -1,0 +1,19 @@
+<!-- <p>forms works!</p> -->
+<h2>Angular forms types: Template and Reactive</h2>
+
+<h3>Angular Template based Contact Form</h3>
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit2(myForm)">
+    <input type="text" name="fullname" placeholder="Enter your fullname" ngModel/><br><br>
+    <input type="email" name="email" placeholder="Enter your email" ngModel/><br><br>
+    <input type="text" name="message" placeholder="Enter remarks" ngModel/><br><br>
+    <input type="submit" value="Send" />
+</form>
+<br><br><br>
+<h3>Angular Reactive Contact Form</h3>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <input type="text" name="fullname" placeholder="Enter your fullname" formControlName="fullname" /><br><br>
+    <input type="email" name="email" placeholder="Enter your email" formControlName="email" /> <br><br>
+    <textarea name="message" placeholder="Enter remarks" formControlName="message"></textarea> <br><br>
+    <input type="submit" value="Send" />
+</form>

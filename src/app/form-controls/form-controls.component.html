@@ -1,0 +1,12 @@
+<p>form-controls works!</p>
+
+
+<h3>Initial Value is default</h3>
+<input type="text" required [formControl]="myControlWithDefault" />
+<button (click)="myControlWithDefault.reset()">Reset</button>
+<p>Value: {{ myControlWithDefault.value }}</p>
+
+<h3>Regular Behaviour</h3>
+<input type="text" required [formControl]="myControl" />
+<button (click)="myControl.reset()">Reset</button>
+<p>Value: {{myControl.value}}</p>
