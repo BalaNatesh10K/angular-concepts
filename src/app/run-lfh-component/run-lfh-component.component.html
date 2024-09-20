@@ -1,0 +1,10 @@
+<!-- <p>run-lfh-component works!</p> -->
+
+<h1>{{ title }}</h1>
+<p>Message: <input type="text" [(ngModel)]="message"></p>
+<p>Code: <input type="text" [(ngModel)]="code"></p>
+<p>Name: <input type="text" [(ngModel)]="name"></p>
+<button (click)="updateCustomer()">Update Customer Data</button>
+<app-lifecycle-hooks [message]="message" [customer]="customer"></app-lifecycle-hooks>
+<!-- Because we called life cycle hook component in the end, it means life cycle
+ hook html will get printed here -->

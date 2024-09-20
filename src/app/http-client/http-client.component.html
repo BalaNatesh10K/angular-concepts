@@ -1,0 +1,48 @@
+<!-- <p>http-client works!</p> -->
+
+<div class="container">
+  <h1>Data Fetch using HttpClient or Observables - Both are Same</h1>
+  <div class="card">
+    <div class="card-header">
+      <table class="table table-bordered">
+        <tr>
+          <th>ID</th>
+          <th>Body</th>
+          <th>Title</th>
+          <th>UserId</th>
+        </tr>
+        <tr *ngFor="let post of posts">
+          <td>{{ post.id }}</td>
+          <td>{{ post.body }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.userId }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="container">
+  <h1>Just printing the item titles</h1>
+  <div class="card">
+    <div class="card-header">
+      <ul class="list-group">
+        <li *ngFor="let post of posts" class="list-group-item">
+          {{ post.title }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isVisible">This element is shown conditionally</div>
+<div [ngStyle]="{ 'background-color': color }">Styled Element</div>
+
+<a appHighlight>This text is Highlighted</a>
+<button appRedborder>Button with Red Border</button>
+
+<h1>{{ title }}</h1>
+<input type="text" [(ngModel)]="name" />
+<p>Hello, {{name}}</p>
+<button [disabled]="!name">Greet</button>

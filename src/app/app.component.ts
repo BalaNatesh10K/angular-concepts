@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HelloComponent } from './hello/hello.component';
+import { HelloComponent } from './others/hello/hello.component';
 import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { VariableBinding } from '@angular/compiler';
 import { FormsModule } from '@angular/forms';
