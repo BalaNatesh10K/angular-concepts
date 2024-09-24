@@ -9,6 +9,34 @@
         <div>
             <label><strong>Description:</strong></label>{{ currentTutorial.description }}
         </div>
+        <div class="col-md-6">
+            <strong>Comments</strong>
+            <ul class="list-group">
+                @for (comment of comments; track comment.id; let i = $index) {
+                    <li class="list-group-item">
+                {{ comment.comment }}
+                </li>
+                }
+            </ul>
+    
+            <button class="mb-3 btn btn-sm btn-danger" (click)="getCommentsOfTutorial(currentTutorial.id)">
+                Get Comments
+            </button>
+        </div>
+        <div class="col-md-6">
+            <strong>Tags</strong>
+            <ul class="list-group">
+                @for (tag of tags; track tag.id; let i = $index) {
+                    <li class="list-group-item">
+                {{ tag.name }}
+                </li>
+                }
+            </ul>
+    
+            <button class="mb-3 btn btn-sm btn-danger" (click)="getTagsOfTutorial(currentTutorial.id)">
+                Get tags
+            </button>
+        </div>
         <div>
             <label><strong>Status:</strong></label>{{ currentTutorial.published ? "Published" : "Pending"}}
         </div>

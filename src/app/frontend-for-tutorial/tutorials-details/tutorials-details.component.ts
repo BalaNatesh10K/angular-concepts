@@ -4,6 +4,10 @@ import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/route
 import { Tutorial } from '../model/tutorial.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Comment } from '../model/comment.model';
+import { CommentsService } from '../services/comments.service';
+import { TagsService } from '../services/tags.service';
+import { Tag } from '../model/tags.model';
 
 @Component({
   selector: 'app-tutorials-details',
@@ -23,9 +27,12 @@ export class TutorialsDetailsComponent implements OnInit{
     published:false
   };
 
+ comments: Comment[] =[]; 
+ tags: Tag[]=[];
   message = '';
 
-  constructor (private tutorialService: TutorialService,
+  constructor (private tutorialService: TutorialService, private commentService: CommentsService,
+    private tagService: TagsService,
     private route: ActivatedRoute,
     private router: Router){ }
 
@@ -40,6 +47,26 @@ export class TutorialsDetailsComponent implements OnInit{
       this.tutorialService.get(id).subscribe({
         next: (data) => {
           this.currentTutorial = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+    }
+
+    getCommentsOfTutorial(id: string): void{
+      this.commentService.getAllTutorialComments(id).subscribe({
+      next: (data) => {
+        this.comments = data;
+        console.log(data);
+      },
+      error: (e) => console.error(e)
+    });
+    }
+
+    getTagsOfTutorial(id: string): void{
+      this.tagService.getAllTutorialTags(id).subscribe({
+        next: (data) => {
+          this.tags = data;
           console.log(data);
         },
         error: (e) => console.error(e)
@@ -75,6 +102,10 @@ export class TutorialsDetailsComponent implements OnInit{
         },
         error: (e) => console.log(e)
       });
+      setTimeout(() => {
+        this.router.navigate([`/tutorials`]);
+      },1000); // After 1 second, after we click on update tutorial button, page will automatically
+      // redirect to tutorials page for us to verify our changes
     }
 
     deleteTutorial(): void{
@@ -85,9 +116,9 @@ export class TutorialsDetailsComponent implements OnInit{
         },
         error: (e) => console.error(e)
       });
-    }
-
-    changeViewMode(): void{
-      this.viewMode=!this.viewMode;
+      setTimeout(() => {
+        this.router.navigate([`/tutorials`]);
+      }, 1000); // after 1 second, after we click on delete tutorial button, page will automatically
+      // redirect to tutorials page for us to verify our changes
     }
 }

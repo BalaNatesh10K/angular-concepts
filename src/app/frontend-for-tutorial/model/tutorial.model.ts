@@ -1,7 +1,7 @@
 //This will work as a model object to setup the tutorial data and retrieving the data also
 
 export class Tutorial{
-    id: any;
+    id?: any;
     title: string;
     description: string;
     published: boolean;
