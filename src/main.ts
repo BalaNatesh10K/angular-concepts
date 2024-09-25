@@ -11,6 +11,10 @@ import { HttpClientComponent } from './app/http-client/http-client.component';
 import { RunLfhComponentComponent } from './app/run-lfh-component/run-lfh-component.component';
 import { TutorialsListComponent } from './app/frontend-for-tutorial/tutorials-list/tutorials-list.component';
 import { RunProjectComponent } from './app/frontend-for-tutorial/run-project/run-project.component';
+import { EmployeeListComponent } from './app/frontend-for-emp/employee-list/employee-list.component';
+import { AddEmployeeComponent } from './app/frontend-for-emp/add-employee/add-employee.component';
+import { ShowDetailsComponent } from './app/frontend-for-emp/show-details/show-details.component';
+import { RunEmpProjectComponent } from './app/frontend-for-emp/run-emp-project/run-emp-project.component';
 
 // bootstrapApplication(RunFrontendTutorialComponent, appConfig).then(ref => {
 //   if(window['ngRef']){
@@ -20,5 +24,5 @@ import { RunProjectComponent } from './app/frontend-for-tutorial/run-project/run
 // })
 // .catch(err) => console.error(err);
 
-bootstrapApplication(RunProjectComponent, appConfig)
+bootstrapApplication(RunEmpProjectComponent, appConfig)
   .catch((err) => console.error(err));

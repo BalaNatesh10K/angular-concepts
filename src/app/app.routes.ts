@@ -13,6 +13,9 @@ import { ContactComponent } from './pages/general/contact/contact.component';
 import { TutorialsListComponent } from './frontend-for-tutorial/tutorials-list/tutorials-list.component';
 import { TutorialsDetailsComponent } from './frontend-for-tutorial/tutorials-details/tutorials-details.component';
 import { AddTutorialComponent } from './frontend-for-tutorial/add-tutorial/add-tutorial.component';
+import { EmployeeListComponent } from './frontend-for-emp/employee-list/employee-list.component';
+import { AddEmployeeComponent } from './frontend-for-emp/add-employee/add-employee.component';
+import { ShowDetailsComponent } from './frontend-for-emp/show-details/show-details.component';
 
 export const routes: Routes = [
     // { path: '', component:HomeComponent},
@@ -36,8 +39,16 @@ export const routes: Routes = [
     // },
     // { path: '**', component: NotFoundComponent}
 
-    { path: '', redirectTo: 'tutorials', pathMatch: 'full'},
-    { path: 'tutorials', component: TutorialsListComponent},
-    { path: 'tutorials/:id', component: TutorialsDetailsComponent},
-    {path: 'add', component: AddTutorialComponent},
+    // { path: '', redirectTo: 'tutorials', pathMatch: 'full'},
+    // { path: 'tutorials', component: TutorialsListComponent},
+    // { path: 'tutorials/:id', component: TutorialsDetailsComponent},
+    // {path: 'add', component: AddTutorialComponent},
+
+    { path: "show-all-employees", component: EmployeeListComponent},
+    {path: "add-employee", component: AddEmployeeComponent},
+    {path: '', redirectTo: "show-all-employees", pathMatch: "full"},
+    // {path: 'updating-by-id/:id', component: UpdateEmployeeComponent},
+    {path: 'details-of-employee/:id', component: ShowDetailsComponent},
+    // {path: 'home', component: HomeComponent2},
+    // {path: 'login', component: AdminLoginComponent}
 ];
